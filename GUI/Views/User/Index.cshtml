@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+}
+
+<span><strong>List of users</strong></span>
+<table class="table">
+    @foreach (var userDTO in ViewBag.Data)
+    {
+        <tr>
+            <td>
+                @userDTO.UserId
+            </td>
+            <td>
+                @userDTO.UserName
+            </td>
+            <td>
+                @userDTO.Password
+            </td>
+        </tr>
+    }
+
+</table>

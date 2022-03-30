@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MyApp2.Models.StudentDTO>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1 style="text-align: center">LIST STUDENT</h1>
+<h4>@Html.ActionLink("Create", "Create", new { /* id=item.PrimaryKey */ })</h4>
+
+@using (Html.BeginForm())
+{
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var studentDTO in ViewBag.Data)
+        {
+            <tr>
+                <td>
+                    @studentDTO.NameID
+                    
+                </td>
+                <td>
+                    @studentDTO.Name
+                </td>
+                <td>
+                    @studentDTO.City
+                </td>
+                <td>
+                    @studentDTO.Address
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { /*id = studentDTO.NameID*/ }) |
+                    @Html.ActionLink("Update", "Update", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
